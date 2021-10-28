@@ -44,6 +44,13 @@ public class RepositorioLivro : IRepositorio<Livro>
             Autor = "JK"
         };
         Lista.Add(hpImp);
+
+        var hgImpresso = new LivroImpresso
+        {
+            Nome = "Hunger Games",
+            Autor = "Suzanne Collins"
+        };
+        Lista.Add(hgImpresso);
     }
 
 
