@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Amazonia.DAL.Entidades;
+using Amazonia.DAL.Infraestrutura;
 using Amazonia.DAL.Repositorios;
 
 public class RepositorioLivro : IRepositorio<Livro>
@@ -56,7 +57,10 @@ public class RepositorioLivro : IRepositorio<Livro>
 
     public void Apagar(Livro obj)
     {
-        Lista.Remove(obj);
+        if(Lista.Remove(obj) == false)
+        {
+            throw new AmazoniaException("Falha ao apagar livro");
+        }
     }
 
     public Livro Atualizar(string nomeAntigo, string nomeNovo)
